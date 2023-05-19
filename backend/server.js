@@ -3,8 +3,9 @@ const app = express();
 const cors = require("cors");
 const volleyball = require("volleyball");
 const cookieParser = require("cookie-parser");
+const db = require("./config/db")
 
-const PORT=3001
+const PORT=8000
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +18,8 @@ app.get("/prueba",(req,res)=>{
 
 (async ()=>{
     try{
-        app.listen(PORT,()=>{
+        await db.sync({ force: false });
+        app.listen(PORT, () => {
             console.log(`server is running on port ${PORT}`);
         });
     } catch(error){
