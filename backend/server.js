@@ -4,7 +4,7 @@ const cors = require("cors");
 const volleyball = require("volleyball");
 const cookieParser = require("cookie-parser");
 const db = require("./config/db")
-
+const routes=require("./routes")
 const PORT=8000
 
 app.use(cors());
@@ -15,6 +15,8 @@ app.use(volleyball);
 app.get("/prueba",(req,res)=>{
     res.status(200).send("Conexion back correcta")
 });
+
+app.use("/api", routes);
 
 (async ()=>{
     try{
