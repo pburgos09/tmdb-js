@@ -3,6 +3,7 @@ const router = express.Router();
 const showControllers = require("../controllers/showsControllers");
 
 router.get("/", showControllers.shows);
+router.get("/list", showControllers.showsGenresList);
 router.get("/:id", showControllers.showsId);
 router.get("/search/:title", showControllers.showsTitle);
 router.get("/genres/:id", showControllers.showsGenres);
