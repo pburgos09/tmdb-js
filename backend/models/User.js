@@ -13,14 +13,14 @@ class User extends S.Model {
 
 User.init(
   {
-    name: {
+    firstName: {
       type: S.STRING,
       validate: {
         notEmpty: true,
         is: [/^[A-Za-z ]+$/g],
       },
     },
-    last_name: {
+    lastName: {
       type: S.STRING,
       validate: {
         notEmpty: true,
@@ -29,6 +29,7 @@ User.init(
     },
     alias: {
       type: S.STRING,
+      unique: true,
       validate: {
         notEmpty: true,
         is: /^[a-zA-Z0-9 ]+$/,
@@ -36,6 +37,7 @@ User.init(
     },
     email: {
       type: S.STRING,
+      unique: true,
       validate: {
         notEmpty: true,
         isEmail: true,
